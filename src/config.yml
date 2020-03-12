@@ -1,0 +1,11 @@
+---
+items:
+  spawn: MAGMA_CREAM
+  compass: COMPASS
+spawn:
+  world: lobby
+  x: 0
+  y: 100
+  z: 0
+  yaw: 0
+  pitch: 0

@@ -1,0 +1,15 @@
+---
+name: LobbyAPI
+author: booky10
+main: tk.t11e.lobbyapi.main.Main
+version: '1.0'
+api-version: '1.15'
+description: A Lobby API
+depend: ["PaperT11EAPI"]
+database: false
+prefix: LobbyAPI
+website: https://t11e.tk/
+load: POSTWORLD
+authors: ["booky10"]
+loadbefore: ["PaperT11EAPI"]
+softdepend: ["PaperT11EAPI"]

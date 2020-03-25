@@ -152,41 +152,40 @@ public class LobbyManager implements PluginMessageListener {
         return inventory;
     }
 
+    public static Inventory getActiveGamesInventory() {
+        Inventory inventory = InventoryUtils.createGrayInventory(9 * 5, "§cActive Games");
+        for (int i = 0; i < getActiveGames().size(); i++)
+            inventory.setItem(i, getActiveGames().get(i).getItem());
+        return inventory;
+    }
+
+    public static Inventory getPassiveGamesInventory() {
+        Inventory inventory = InventoryUtils.createGrayInventory(9 * 5, "§9Passive Games");
+        for (int i = 0; i < getPassiveGames().size(); i++)
+            inventory.setItem(i, getPassiveGames().get(i).getItem());
+        return inventory;
+    }
+
+    public static Inventory getOtherGamesInventory() {
+        Inventory inventory = InventoryUtils.createGrayInventory(9 * 5, "§fOther Games");
+        for (int i = 0; i < getOtherGames().size(); i++)
+            inventory.setItem(i, getOtherGames().get(i).getItem());
+        return inventory;
+    }
+
+    public static HashMap<String, ItemStack> getItemCash() {
+        return itemCash;
+    }
+
     public static ItemStack getSpawnItem() {
-        if (itemCash.containsKey("spawn"))
-            return itemCash.get("spawn");
-        else {
-            String item=Main.main.getConfig().getString("items.spawn");
-            System.out.println(item);//TODO: WARUM???
-            Material spawnMaterial = Material.valueOf(item);
-            ItemStack itemStack = new ItemStack(spawnMaterial);
-            ItemMeta itemMeta = itemStack.getItemMeta();
-            itemMeta.addItemFlags(ItemFlag.values());
-            itemMeta.setDisplayName("§6Spawn");
-            itemStack.setItemMeta(itemMeta);
-            itemCash.put("spawn",itemStack);
-            return itemStack;
-        }
+        return itemCash.get("spawn");
     }
 
     public static ItemStack getCompassItem() {
-        if (itemCash.containsKey("compass"))
-            return itemCash.get("compass");
-        else {
-            FileConfiguration config = Main.main.getConfig();
-            String item=config.getString("items.compass");
-            Material spawnMaterial = Material.valueOf(item);
-            ItemStack itemStack = new ItemStack(spawnMaterial);
-            ItemMeta itemMeta = itemStack.getItemMeta();
-            itemMeta.addItemFlags(ItemFlag.values());
-            itemMeta.setDisplayName("§6Game Compass");
-            itemStack.setItemMeta(itemMeta);
-            itemCash.put("compass",itemStack);
-            return itemStack;
-        }
+        return itemCash.get("compass");
     }
 
-    public static ItemStack getActiveItem(){
+    public static ItemStack getActiveItem() {
         if (itemCash.containsKey("active"))
             return itemCash.get("active");
         else {
@@ -195,12 +194,12 @@ public class LobbyManager implements PluginMessageListener {
             itemMeta.addItemFlags(ItemFlag.values());
             itemMeta.setDisplayName("§cActive Games");
             itemStack.setItemMeta(itemMeta);
-            itemCash.put("active",itemStack);
+            itemCash.put("active", itemStack);
             return itemStack;
         }
     }
 
-    public static ItemStack getPassiveItem(){
+    public static ItemStack getPassiveItem() {
         if (itemCash.containsKey("passive"))
             return itemCash.get("passive");
         else {
@@ -209,12 +208,12 @@ public class LobbyManager implements PluginMessageListener {
             itemMeta.addItemFlags(ItemFlag.values());
             itemMeta.setDisplayName("§9Passive Games");
             itemStack.setItemMeta(itemMeta);
-            itemCash.put("passive",itemStack);
+            itemCash.put("passive", itemStack);
             return itemStack;
         }
     }
 
-    public static ItemStack getOtherItem(){
+    public static ItemStack getOtherItem() {
         if (itemCash.containsKey("other"))
             return itemCash.get("other");
         else {
@@ -223,7 +222,7 @@ public class LobbyManager implements PluginMessageListener {
             itemMeta.addItemFlags(ItemFlag.values());
             itemMeta.setDisplayName("§fOther Games");
             itemStack.setItemMeta(itemMeta);
-            itemCash.put("other",itemStack);
+            itemCash.put("other", itemStack);
             return itemStack;
         }
     }

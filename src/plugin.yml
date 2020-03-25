@@ -2,7 +2,7 @@
 name: LobbyAPI
 author: booky10
 main: tk.t11e.lobbyapi.main.Main
-version: '1.0'
+version: '1.0b'
 api-version: '1.15'
 description: A Lobby API
 depend: ["PaperT11EAPI"]

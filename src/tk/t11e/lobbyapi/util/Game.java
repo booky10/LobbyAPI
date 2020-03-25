@@ -3,6 +3,9 @@ package tk.t11e.lobbyapi.util;
 
 import com.sun.istack.internal.NotNull;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.UUID;
 
@@ -50,6 +53,15 @@ public class Game {
     public Game setId(UUID id) {
         this.id = id;
         return this;
+    }
+
+    public ItemStack getItem(){
+        ItemStack itemStack=new ItemStack(material);
+        ItemMeta itemMeta=itemStack.getItemMeta();
+        itemMeta.setDisplayName(name);
+        itemMeta.addItemFlags(ItemFlag.values());
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
     }
 
     public Game setMaterial(Material material) {
